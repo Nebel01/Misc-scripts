@@ -7,10 +7,9 @@ $destFile = "C:\temp\mynewSSL.pfx"
 
 Invoke-Command -ComputerName $serverList -ScriptBlock { 
 
-Write-host "Connected to: $env:computername"
-#Copy file to the remote server
-Copy-Item -Path $srcFile -Destination $destFile
-#Import the SSL cert into the system
-Import-Certificate -FilePath $destFile -CertStoreLocation Cert:\LocalMachine\My
-
+  Write-host "Connected to: $env:computername"
+  #Copy file to the remote server
+  Copy-Item -Path $srcFile -Destination $destFile
+  #Import the SSL cert into the system
+  Import-Certificate -FilePath $destFile -CertStoreLocation Cert:\LocalMachine\My
 }
